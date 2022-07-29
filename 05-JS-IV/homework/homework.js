@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { add } = require("@11ty/eleventy/src/TemplateCache")
+
 function crearGato (nombre, edad) {
   // Crear un nuevo objeto con la propiedad "nombre" y el valor definido como el argumento "nombre".
   // Agrega una propiedad al objeto con el nombre "edad" y usa el valor definido en el argumento "edad"
@@ -9,19 +11,16 @@ function crearGato (nombre, edad) {
 //  var gato = { nombre: nombre, edad: edad, meow: function() {return (this.meow + "Meow!")} 
 //}
 
-//{return gato;}
-//}
 var objeto = {
   nombre: nombre,
   edad: edad,
   meow: function() {
-return "Meow!"
-
+    return "Meow!"
   }
 }
 return objeto
-
 }
+
 function agregarPropiedad (objeto, property) {
   // Agrega una propiedad al objeto (argumento "objeto") con el valor `null`
   // Devuelve el objeto
@@ -38,16 +37,19 @@ function invocarMetodo (objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-
 objeto [metodo]()
+
 }
 
 function multiplicarNumeroDesconocidoPorCinco (objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-var producto = objetoMisterioso.numeroMisterioso * 5
+//var producto = objetoMisterioso.numeroMisterioso * 5
+//return producto
+var producto =  objetoMisterioso.numeroMisterioso * 5
 return producto
+// error
 }
 
 function eliminarPropiedad (objeto, unaPropiedad) {
@@ -55,9 +57,8 @@ function eliminarPropiedad (objeto, unaPropiedad) {
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
   // Tu código:
-
-  delete objeto [unaPropiedad]
-  return objeto
+delete objeto [unaPropiedad] 
+return objeto
 }
 
 function nuevoUsuario (nombre, email, password) {
@@ -65,26 +66,22 @@ function nuevoUsuario (nombre, email, password) {
   // Devuelve el objeto
   // Tu código:
 var objeto = {
-nombre: nombre,
-email: email,
-password: password,
+  nombre : nombre,
+  email : email,
+  password : password,
 }
 return objeto
- 
 }
 
 function tieneEmail (usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-if (usuario.email) {
-return true
+if (usuario.email){
+  return true
 } else {
-
   return false
 }
-
-
 
 }
 
@@ -95,8 +92,7 @@ function tienePropiedad (objeto, propiedad) {
   // Tu código:
   if (objeto[propiedad]) {
     return true
-    } else {
-    
+    } else {    
       return false
     }
   
@@ -108,13 +104,11 @@ function verificarPassword (usuario, password) {
   // De lo contrario, devuelve "false"
   // Tu código:
 
-  if (password === [usuario.password]) {
+  if (password === usuario.password) {
     return true
-    } else {
-    
+    } else {    
       return false
     }
-  
 
 }
 
@@ -123,8 +117,8 @@ function actualizarPassword (usuario, nuevaPassword) {
   // Devuelve el objeto
   // Tu código:
 
-usuario.password = nuevaPassword;
-return usuario;
+usuario.password = nuevaPassword
+return usuario
 }
 
 function agregarAmigo (usuario, nuevoAmigo) {
@@ -134,7 +128,7 @@ function agregarAmigo (usuario, nuevoAmigo) {
   // Tu código:
 
 usuario.amigos.push (nuevoAmigo);
-return usuario;
+return usuario
 }
 
 function pasarUsuarioAPremium (usuarios) {
@@ -144,8 +138,14 @@ function pasarUsuarioAPremium (usuarios) {
   // Devuelve el array de usuarios
   // Tu código:
 
-usuarios.forEach((usuario) => usuario.esPremium = true);
-return usuarios;
+//usuarios.forEach((usuario) => usuario.esPremium = true);
+//return usuarios;
+
+for (var i = 0 ;i < usuarios.length ;i++ ){
+usuarios[i].esPremium = true
+}
+return usuarios
+
 }
 
 function sumarLikesDeUsuario (usuario) {
@@ -155,11 +155,18 @@ function sumarLikesDeUsuario (usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+  // objeto usurio:
+  // post [post1,post2]
+  // post (likes numeros enteros)
+// var pots = [post] 
+//usuario.pots
 var suma = 0;
-for(let i = 0 ; i < usuario.post.length; i++){
-suma = suma + usuario.post[i].likes
+for (var i = 0 ; i < usuario.posts.length; i ++){
+  suma =  suma + usuario.posts[i].likes 
+  
 }
 return suma
+
 }
 
 function agregarMetodoCalculoDescuento (producto) {
