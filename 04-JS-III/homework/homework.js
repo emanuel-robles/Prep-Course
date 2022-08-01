@@ -216,23 +216,28 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-var miarray = [];
-var acc = numero;
-var aux = 1;
 
-for (var i = 1; i <=10; i++) {
-acc = acc + 2;
-  if (acc === aux) { break; }
-  aux = aux + 1;
-  miarray.push(acc)
-}
+  var miArray = [];
+  var acc = numero;
+  var aux = 1;
+  
+  for (var i = 1; i <=10; i++) {
+  acc = acc + 2;
+    if (acc === aux) { break; }
+    aux = aux + 1;
+    miArray.push(acc)
+  }
+  
+  if (acc === aux ) return "Se interrumpió la ejecución";
 
-if (acc === aux ) return "Se interrumpió la ejecución";
-}
+  return miArray
+  }
+  
 
 
- 
 
+
+  
 function continueStatement(numero) {
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
   //Guardar cada nuevo valor en un array.    
