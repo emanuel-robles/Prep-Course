@@ -1,5 +1,6 @@
 // No cambies los nombres de las funciones.
 
+const { prototype } = require("@11ty/eleventy")
 const { stringify } = require("git-url-parse")
 
 function crearUsuario() {
@@ -10,27 +11,20 @@ function crearUsuario() {
   // {{nombre}} debe ser el nombre definido en cada instancia
   // Devuelve la clase
   // Tu código:
-  // var usuario = {usuario: emanuel, email: pah, password: xd};
-//function usuario (nombre, email, password,) {
-//this.nombre = nombre;
-//this.email = email;
-//this.password = password;
-//};
-//var usuario = new usuario("emanuel", "papahotmail.com", "osito")
-//}
 
-function Usuario(opciones){
+function Usuario(opciones) {
 
-  this.usuario = opciones.usuario
-  this.nombre= opciones.nombre
-  this.email= opciones.email
-  this.password= opciones.password
-}
-Usuario.prototype.saludar= function(){
+   this.usuario = opciones.usuario
+   this.nombre =  opciones.nombre
+   this.email = opciones.email
+   this.password = opciones.password
+    }
+ Usuario.prototype.saludar= function (){
   return "Hola, mi nombre es " + this.nombre
+ }
+ return Usuario
 }
-return Usuario
-}
+
 function agregarMetodoPrototype(Constructor) {
   // Agrega un método al Constructor del `prototype`
   // El método debe llamarse "saludar" y debe devolver la string "Hello World!"
